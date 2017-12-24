@@ -337,6 +337,7 @@ class Game(object):
 
 
 class Menu(object):
+#multiplayer game, 2-4 players
     def __init__(self, options):
         self.font = pygame.font.Font(None, 48)
         self.small_font = pygame.font.Font(None, 32)
