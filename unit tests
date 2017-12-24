@@ -1,0 +1,52 @@
+import unittest
+import scorch
+
+
+class TestTheGame(unittest.TestCase):
+    tank = scorch.ShootOption()
+
+    def test_eq(self):
+        print('tesing eq func')
+        self.assertEqual(scorch.eq(1,2,3,4,5,6),0,'not equal')
+
+    def test_a(self):
+        print('testing paramenter a')
+        self.assertEqual(self.tank.a,0,'not equals')
+
+    def test_b(self):
+        print('testing paramenter b')
+        self.assertEqual(self.tank.b,0,'not equals')
+
+    def test_c(self):
+        print('testing paramenter c')
+        self.assertEqual(self.tank.c,0,'not equals')
+
+    def test_speed(self):
+        print('testing paramenter speed')
+        self.assertEqual(self.tank.speed,1,'not equals')
+
+    def test_update(self):
+        print('testing update <else> function')
+        self.assertEquals(self.tank.update(0),0,'not equals')
+
+    def test_update1(self):
+        print('testing update <LINEAR> function')
+        self.assertEqual(self.tank.mode,self.tank.LINEAR)
+
+    tank1 = scorch.Tank(1,1,scorch.RED)
+
+    def test_tank(self):
+        print('testing moves left')
+        self.assertGreater(self.tank1.moves_left,0,'no moves left')
+
+    def test_shooting_path(self):
+        print('testing shootng path')
+        self.assertNotEquals(self.tank1.create_shooting_path(),[],'path is empty')
+
+    def test_tank_dead(self):
+        print('testing if the tank died')
+        self.assertNotEquals(self.tank1.explode(),self.tank1.alive,'tank is still alive')
+
+
+if __name__ == '__main__':
+    unittest.main()
